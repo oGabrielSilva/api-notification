@@ -9,15 +9,15 @@ router.get("/", (req, res) => {
 });
 
 router.post("/push/notification", (req, res) => {
-  const { token: pushToken, title, body } = req.body;
+  const { to, title, body } = req.body;
 
   const messages = [];
-  if (!Expo.isExpoPushToken(pushToken)) {
-    return console.error(`Push token ${pushToken} is not a valid Expo push token`);
+  if (!Expo.isExpoPushToken(to)) {
+    return console.error(`Push token ${to} is not a valid Expo push token`);
   }
 
   messages.push({
-    to: pushToken,
+    to,
     sound: "default",
     body,
     title,
