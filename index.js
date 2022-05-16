@@ -9,3 +9,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.listen(port, () => console.log("Server listen on port", port));
+
+module.exports = app;
