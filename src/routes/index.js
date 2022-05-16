@@ -4,6 +4,10 @@ const router = express.Router();
 
 const expo = new Expo();
 
+router.get("/", (req, res) => {
+  res.send("Hello from Vercel");
+});
+
 router.post("/push/notification", (req, res) => {
   const { token: pushToken, title, body } = req.body;
 
